@@ -1,3 +1,12 @@
-var myName = 'Tom';
+let myName = 'Tom';
 
-type Foo = {};
+interface Foo {}
+
+interface MyInterface {
+  name: string;
+}
+
+// 测试 types 有没有被导报成单独的 .d.ts
+export const getMyName: MyInterface = (): MyInterface => {
+  return { name: 'shangyang' };
+};
