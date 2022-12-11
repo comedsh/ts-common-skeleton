@@ -1,5 +1,8 @@
 module.exports = {
   extends: ['alloy', 'alloy/typescript'],
+  env: {
+    mocha: true
+  },
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint', 'prettier'],
   rules: {

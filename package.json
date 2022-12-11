@@ -5,19 +5,46 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc --project ./tsconfig.json",
+    "eslint_backup": "eslint . --ext .js,.jsx,.ts,.tsx",
     "eslint": "eslint . --ext .ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test_backup": "mocha --require ts-node/register tests/**/*.ts tests/**/*.tsx",
+    "test_without_istanbul": "mocha --require ts-node/register tests/**/*.ts",
+    "test": "nyc mocha --require ts-node/register --require source-map-support/register --recursive tests/**/*.ts"
+  },
+  "nyc": {
+    "extension": [
+      ".ts",
+      ".tsx"
+    ],
+    "exclude": [
+      "**/*.d.ts"
+    ],
+    "reporter": [
+      "html"
+    ],
+    "all": true
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/chai": "^4.3.4",
+    "@types/mocha": "^10.0.1",
+    "@types/sinon": "^10.0.13",
     "@typescript-eslint/eslint-plugin": "^5.46.0",
     "@typescript-eslint/parser": "^5.46.0",
+    "chai": "^4.3.7",
     "eslint": "^8.29.0",
     "eslint-config-alloy": "^4.7.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "istanbul": "^0.4.5",
+    "mocha": "^10.1.0",
+    "nyc": "^15.1.0",
     "prettier": "2.8.1",
+    "sinon": "^15.0.0",
+    "source-map-support": "^0.5.21",
+    "ts-node": "^10.9.1",
     "typescript": "^4.9.4"
-  }
+  },
+  "dependencies": {}
 }

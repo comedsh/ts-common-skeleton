@@ -1,0 +1,5 @@
+{
+    "mocha.subdirectory": "/Users/mac/workspace/ts/modules/ts-common-skeleton",
+    "mochaExplorer.require": "ts-node/register",
+    "mochaExplorer.files": "tests/**/*.ts",
+}
